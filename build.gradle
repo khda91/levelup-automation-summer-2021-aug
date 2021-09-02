@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+    id 'checkstyle'
+}
+
+repositories {
+    mavenLocal()
+    maven {
+        url = uri('https://repo.maven.apache.org/maven2/')
+    }
+}
+
+dependencies {
+    testImplementation 'org.testng:testng:7.4.0'
+}
+
+group = 'ru.levelup.at'
+version = '1.0-SNAPSHOT'
+description = 'levelup-automation-summer-2021-aug'
+java.sourceCompatibility = JavaVersion.VERSION_11
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+tasks.named('test') {
+    useTestNG()
+}
