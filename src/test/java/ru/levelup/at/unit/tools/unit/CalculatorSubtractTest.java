@@ -1,4 +1,4 @@
-package ru.levelup.at.unit.tools;
+package ru.levelup.at.unit.tools.unit;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;

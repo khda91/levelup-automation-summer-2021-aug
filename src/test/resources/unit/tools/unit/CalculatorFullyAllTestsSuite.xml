@@ -1,0 +1,1 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" ><!-- BEFORE SUITE --><suite name="Calculator Fully All Tests Suite">  <test name="Calculator Fully All Tests">    <packages>      <package name="ru.levelup.at.unit.tools.unit"/>    </packages>  </test></suite>    <!-- AFTER SUITE -->
