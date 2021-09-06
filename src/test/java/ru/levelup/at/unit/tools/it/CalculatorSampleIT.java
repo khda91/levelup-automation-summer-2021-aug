@@ -1,22 +1,23 @@
-package ru.levelup.at.unit.tools;
+package ru.levelup.at.unit.tools.it;
 
-import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import ru.levelup.at.unit.tools.Calculator;
 
-public class CalculatorSampleTest {
+public class CalculatorSampleIT {
 
     private Calculator calculator;
 
-    @BeforeClass
-    public void beforeTestClass() {
+    @BeforeAll
+    public static void beforeTestClass() {
         System.out.println("beforeTestClass");
     }
 
-    @BeforeMethod
+    @BeforeEach
     public void beforeTestMethod() {
         System.out.println("beforeTestMethod");
         calculator = new Calculator();
@@ -27,7 +28,7 @@ public class CalculatorSampleTest {
         System.out.println("sumTest");
         int actualSum = calculator.sum(2, 2);
         int expectedSum = 2 + 2;
-        Assert.assertEquals(actualSum, expectedSum, "Incorrect result");
+        Assertions.assertEquals(actualSum, expectedSum, "Incorrect result");
     }
 
     @Test
@@ -35,17 +36,17 @@ public class CalculatorSampleTest {
         System.out.println("subtractTest");
         int actualSum = calculator.subtract(3, 2);
         int expectedSum = 3 - 2;
-        Assert.assertEquals(actualSum, expectedSum, "Incorrect result");
+        Assertions.assertEquals(actualSum, expectedSum, "Incorrect result");
     }
 
-    @AfterMethod
+    @AfterEach
     public void afterTestMethod() {
         System.out.println("afterTestMethod");
         calculator = null;
     }
 
-    @AfterClass
-    public void afterTestClass() {
+    @AfterAll
+    public static void afterTestClass() {
         System.out.println("afterTestClass");
     }
 }
