@@ -1,4 +1,4 @@
-package ru.levelup.at.selenium;
+package ru.levelup.at.selenium.base;
 
 import java.io.File;
 import java.io.IOException;

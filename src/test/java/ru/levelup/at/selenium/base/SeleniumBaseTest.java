@@ -1,4 +1,4 @@
-package ru.levelup.at.selenium;
+package ru.levelup.at.selenium.base;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;

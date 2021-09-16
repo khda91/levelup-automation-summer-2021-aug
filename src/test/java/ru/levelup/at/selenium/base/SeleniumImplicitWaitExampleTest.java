@@ -1,4 +1,4 @@
-package ru.levelup.at.selenium;
+package ru.levelup.at.selenium.base;
 
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;

@@ -1,8 +1,7 @@
-package ru.levelup.at.selenium;
+package ru.levelup.at.selenium.base;
 
 import static org.testng.Assert.assertTrue;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
