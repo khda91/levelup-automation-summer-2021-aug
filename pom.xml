@@ -16,12 +16,14 @@
     <testng.version>7.4.0</testng.version>
     <junit-jupiter.version>5.7.2</junit-jupiter.version>
     <checkstyle.version>8.42</checkstyle.version>
+    <webdrivermanager.version>5.0.1</webdrivermanager.version>
+    <selenium-java.version>3.141.59</selenium-java.version>
+    <javafaker.version>1.0.2</javafaker.version>
+    <assertj-core.version>3.20.2</assertj-core.version>
 
     <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
     <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
     <maven-failsafe-plugin.version>3.0.0-M5</maven-failsafe-plugin.version>
-    <selenium-java.version>3.141.59</selenium-java.version>
-    <webdrivermanager.version>5.0.1</webdrivermanager.version>
   </properties>
 
   <profiles>
@@ -86,6 +88,18 @@
       <groupId>io.github.bonigarcia</groupId>
       <artifactId>webdrivermanager</artifactId>
       <version>${webdrivermanager.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.github.javafaker</groupId>
+      <artifactId>javafaker</artifactId>
+      <version>${javafaker.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.assertj</groupId>
+      <artifactId>assertj-core</artifactId>
+      <version>${assertj-core.version}</version>
     </dependency>
   </dependencies>
 
