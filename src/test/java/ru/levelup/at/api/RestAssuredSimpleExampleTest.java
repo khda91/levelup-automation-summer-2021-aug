@@ -2,7 +2,6 @@ package ru.levelup.at.api;
 
 import com.github.javafaker.Faker;
 import io.restassured.RestAssured;
-import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import java.io.FileWriter;
