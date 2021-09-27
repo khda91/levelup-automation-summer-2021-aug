@@ -3,6 +3,7 @@ package ru.levelup.at.selenium.page.object;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -20,7 +21,7 @@ public abstract class BaseSeleniumPageObjectTest {
 
     @BeforeMethod
     public void setUp(ITestContext context) {
-        driver = new ChromeDriver();
+        driver = new ChromeDriver(new ChromeOptions().setHeadless(true));
         // driverStatic = driver;
         context.setAttribute("web_driver", driver);
     }

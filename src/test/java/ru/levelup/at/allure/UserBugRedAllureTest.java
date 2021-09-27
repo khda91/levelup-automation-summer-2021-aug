@@ -45,4 +45,17 @@ public class UserBugRedAllureTest extends BaseSeleniumPageObjectTest {
         actionStep.registerUser(username, FAKER.internet().emailAddress(), FAKER.internet().password());
         assertionStep.usernameShouldBeDisplayedAndEqualTo(FAKER.name().fullName());
     }
+
+    @Test(description = "Тест по регистрации пользователя (падающий ещё один)")
+    @Description("Проверка возможности регистрации пользователя на ресурсе через WEB UI")
+    public void oneMoreFailedRegisterUserTest() {
+        String username = FAKER.name().username();
+
+        ActionStep actionStep = new ActionStep(driver);
+        AssertionStep assertionStep = new AssertionStep(driver);
+
+        actionStep.openHomePage();
+        actionStep.registerUser(username, FAKER.internet().emailAddress(), FAKER.internet().password());
+        assertionStep.usernameShouldBeDisplayedAndEqualTo(FAKER.name().fullName());
+    }
 }
