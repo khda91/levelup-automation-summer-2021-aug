@@ -9,6 +9,7 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElem
 
 import com.github.javafaker.Faker;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.ITestContext;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.levelup.at.selenium.page.object.BaseSeleniumPageObjectTest;
@@ -21,8 +22,8 @@ public class UserBugRedScriptingTest extends BaseSeleniumPageObjectTest {
 
     @BeforeMethod
     @Override
-    public void setUp() {
-        super.setUp();
+    public void setUp(ITestContext context) {
+        super.setUp(context);
         wait = new WebDriverWait(driver, 10);
         driver.navigate().to("http://users.bugred.ru/");
     }
