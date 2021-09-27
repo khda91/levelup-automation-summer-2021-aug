@@ -4,3 +4,5 @@ target
 *.class
 .gradle
 build
+**/allure-results
+**/.allure

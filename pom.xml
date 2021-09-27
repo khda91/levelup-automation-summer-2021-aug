@@ -20,11 +20,13 @@
     <selenium-java.version>3.141.59</selenium-java.version>
     <javafaker.version>1.0.2</javafaker.version>
     <assertj-core.version>3.20.2</assertj-core.version>
+    <aspectj.version>1.9.6</aspectj.version>
+    <rest-assured.version>4.4.0</rest-assured.version>
 
     <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
     <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
     <maven-failsafe-plugin.version>3.0.0-M5</maven-failsafe-plugin.version>
-    <rest-assured.version>4.4.0</rest-assured.version>
+    <allure.version>2.15.0</allure.version>
   </properties>
 
   <profiles>
@@ -55,6 +57,17 @@
         <suite.xml.file>${project.basedir}/src/test/resources/unit/tools/unit/CalculatorSplittedTestsSuite.xml</suite.xml.file>
       </properties>
     </profile>
+
+    <profile>
+      <id>allure-example-tests-suite</id>
+
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <properties>
+        <suite.xml.file>${project.basedir}/src/test/resources/allure/AllureTestSuite.xml</suite.xml.file>
+      </properties>
+    </profile>
   </profiles>
 
   <dependencies>
@@ -65,19 +78,19 @@
       <scope>test</scope>
     </dependency>
 
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter</artifactId>
-      <version>${junit-jupiter.version}</version>
-      <scope>test</scope>
-    </dependency>
+<!--    <dependency>-->
+<!--      <groupId>org.junit.jupiter</groupId>-->
+<!--      <artifactId>junit-jupiter</artifactId>-->
+<!--      <version>${junit-jupiter.version}</version>-->
+<!--      <scope>test</scope>-->
+<!--    </dependency>-->
 
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-engine</artifactId>
-      <version>${junit-jupiter.version}</version>
-      <scope>test</scope>
-    </dependency>
+<!--    <dependency>-->
+<!--      <groupId>org.junit.jupiter</groupId>-->
+<!--      <artifactId>junit-jupiter-engine</artifactId>-->
+<!--      <version>${junit-jupiter.version}</version>-->
+<!--      <scope>test</scope>-->
+<!--    </dependency>-->
 
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
@@ -125,6 +138,12 @@
       <artifactId>postgresql</artifactId>
       <version>42.2.23</version>
     </dependency>
+
+    <dependency>
+      <groupId>io.qameta.allure</groupId>
+      <artifactId>allure-testng</artifactId>
+      <version>${allure.version}</version>
+    </dependency>
   </dependencies>
 
   <build>
@@ -167,10 +186,20 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <version>${maven-surefire-plugin.version}</version>
         <configuration>
+          <argLine>
+            -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+          </argLine>
           <suiteXmlFiles>
             <suiteXmlFile>${suite.xml.file}</suiteXmlFile>
           </suiteXmlFiles>
         </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${aspectj.version}</version>
+          </dependency>
+        </dependencies>
       </plugin>
 
       <plugin>
@@ -189,5 +218,20 @@
       </plugin>
     </plugins>
   </build>
+
+  <reporting>
+    <excludeDefaults>true</excludeDefaults>
+
+    <plugins>
+      <plugin>
+        <groupId>io.qameta.allure</groupId>
+        <artifactId>allure-maven</artifactId>
+        <version>2.10.0</version>
+        <configuration>
+          <reportVersion>${allure.version}</reportVersion>
+        </configuration>
+      </plugin>
+    </plugins>
+  </reporting>
 
 </project>
