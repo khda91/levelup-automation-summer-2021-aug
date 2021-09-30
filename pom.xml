@@ -68,6 +68,17 @@
         <suite.xml.file>${project.basedir}/src/test/resources/allure/AllureTestSuite.xml</suite.xml.file>
       </properties>
     </profile>
+
+    <profile>
+      <id>factory-method-example-tests-suite</id>
+
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <properties>
+        <suite.xml.file>${project.basedir}/src/test/resources/design/patterns/FactoryMethodTestSuite.xml</suite.xml.file>
+      </properties>
+    </profile>
   </profiles>
 
   <dependencies>
