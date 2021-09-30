@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Factory Method Tests Suite">
+
+  <test name="Factory Method Tests">
+    <classes>
+      <class name="ru.levelup.at.design.patterns.factory.UserBugRedFactoryMethodTest"/>
+    </classes>
+  </test>
+
+</suite>
