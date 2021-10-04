@@ -20,6 +20,8 @@ public class UserBugRedAllureTest extends BaseSeleniumPageObjectTest {
 
     private static final Faker FAKER = new Faker();
 
+    // Bug OOO-777
+    // @KnownBugs({"OOO-999", "OOO-888"})
     @Test(description = "Тест по регистрации пользователя")
     @Description("Проверка возможности регистрации пользователя на ресурсе через WEB UI")
     public void registerUserTest() {

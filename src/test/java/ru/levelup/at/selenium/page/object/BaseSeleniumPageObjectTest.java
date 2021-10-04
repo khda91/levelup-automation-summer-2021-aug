@@ -23,6 +23,8 @@ public abstract class BaseSeleniumPageObjectTest {
     public void setUp(ITestContext context) {
         driver = new ChromeDriver(new ChromeOptions()
             .setHeadless(Boolean.parseBoolean(System.getProperty("headless", "false"))));
+        //        new FirefoxDriver(new FirefoxOptions()
+        //            .setHeadless(true));
         // driverStatic = driver;
         context.setAttribute("web_driver", driver);
     }
